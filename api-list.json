@@ -9,7 +9,7 @@
   "discord": {
     "url": "https://discord.com/api/v9/auth/verify",
     "payload": {
-      "mail": "%EMAIL%",
+      "mail": "%EMAIL%"
     }
   },
   "Another API": {
