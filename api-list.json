@@ -1,0 +1,25 @@
+{
+  "STPR サインアップ": {
+    "url": "https://id.stpr.com/api/email/signup-provision",
+    "payload": {
+      "email": "%EMAIL%",
+      "accept": true
+    }
+  },
+  "サンプルAPI A": {
+    "url": "https://example.com/register",
+    "payload": {
+      "mail": "%EMAIL%",
+      "lang": "ja",
+      "consent": true
+    }
+  },
+  "Another API": {
+    "url": "https://api.example.org/join",
+    "payload": {
+      "data": {
+        "email_address": "%EMAIL%"
+      }
+    }
+  }
+}
