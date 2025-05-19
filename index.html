@@ -5,15 +5,37 @@
   <title>API爆撃サイト</title>
   <script src="script.js" defer></script>
   <style>
-    body { background: #111; color: #eee; font-family: sans-serif; padding: 20px; }
-    input, select, button { width: 100%; margin: 10px 0; padding: 10px; }
-    pre { white-space: pre-wrap; background: #222; padding: 10px; border-radius: 5px; }
+    body {
+      background: #111;
+      color: #eee;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input, select, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      background: #222;
+      border: 1px solid #444;
+      color: #fff;
+    }
+    button {
+      cursor: pointer;
+      background: #333;
+      font-weight: bold;
+    }
+    pre {
+      white-space: pre-wrap;
+      background: #1a1a1a;
+      padding: 10px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
-  <h2>API爆撃フォーム</h2>
+  <h2>mailbom</h2>
 
-  <label>送信先API</label>
+  <label>送信先</label>
   <select id="apiSelect"><option>読み込み中...</option></select>
 
   <label>メールアドレス</label>
@@ -22,8 +44,11 @@
   <label>送信回数</label>
   <input type="number" id="count" placeholder="例: 100">
 
+  <label>プロキシ</label>
+  <input type="text" id="proxy" placeholder="123.45.67.89:8080">
+
   <button id="startBtn">送信開始</button>
 
-  <pre id="log">ログ出力エリア</pre>
+  <pre id="log"></pre>
 </body>
 </html>
