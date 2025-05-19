@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const results = [];
 
     for (let i = 0; i < count; i++) {
-      const status = await fetch("https://your-cloudflare-worker.workers.dev/", {
+      const status = await fetch("https://mailspam.nnnnnnnnnnnnnnnn.workers.dev/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
