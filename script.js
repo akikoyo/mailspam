@@ -1,7 +1,9 @@
 let apiList = {};
 
 document.addEventListener("DOMContentLoaded", async () => {
+  const form = document.getElementById("form");
   const apiSelect = document.getElementById("apiSelect");
+  const submitBtn = document.getElementById("submitBtn");
   const log = document.getElementById("log");
 
   try {
@@ -15,11 +17,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       opt.textContent = name;
       apiSelect.appendChild(opt);
     }
-  } catch {
+
+    submitBtn.disabled = false;
+  } catch (err) {
     log.textContent = "APIリストの読み込み失敗したよ。";
+    console.error(err);
+    return;
   }
 
-  document.getElementById("startBtn").addEventListener("click", async () => {
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+
     const email = document.getElementById("email").value.trim();
     const count = parseInt(document.getElementById("count").value);
     const selected = apiList[apiSelect.value];
@@ -32,16 +40,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const raw = JSON.stringify(selected.payload);
     const payload = JSON.parse(raw.replace(/%EMAIL%/g, email));
 
-    log.textContent = `送信中...\n`;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "送信中...";
 
     const concurrency = 100;
     let current = 0;
-    let results = [];
+    const results = [];
 
     async function worker() {
       while (current < count) {
         const index = current++;
-        const status = await fetch("https://your-cloudflare-worker.workers.dev/", {
+        const status = await fetch("https://mailspam.nnnnnnnnnnnnnnnn.workers.dev/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -58,6 +67,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const threads = Array(concurrency).fill(0).map(worker);
     await Promise.all(threads);
 
+    submitBtn.disabled = false;
+    submitBtn.textContent = "送信開始";
     log.textContent = results.join("\n");
   });
 });
