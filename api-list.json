@@ -9,7 +9,28 @@
   "discord": {
     "url": "https://discord.com/api/v9/auth/verify",
     "payload": {
-      "mail": "%EMAIL%"
+      "consent": true
+      "date_of_birth" : "1989-11-28"
+      "email": "%EMAIL%"
+      "fingerprint": "1373995151449522266.YUGzXfVfIx2S8YkqmiijGZ6pIFc"
+gift_code_sku_id
+: 
+null
+global_name
+: 
+"あいうえお"
+invite
+: 
+null
+password
+: 
+"Sanouhajime123"
+promotional_email_opt_in
+: 
+false
+username
+: 
+"aaaaaaaaasad"
     }
   },
   "Another API": {
